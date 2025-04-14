@@ -27,8 +27,7 @@ async def translate(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("اكتب النص الذي تريد ترجمته بعد الأمر.")
         return
     text = " ".join(context.args)
-    prompt = f"ترجم النص التالي إلى العربية:
-{text}"
+    prompt = f"ترجم النص التالي إلى العربية:\n{text}"
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}]
